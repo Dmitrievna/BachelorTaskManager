@@ -1,0 +1,29 @@
+ {% extends 'CipollinoSys/base.html' %}
+
+
+
+
+     {% block content %}
+
+<h2><a class="'button" href="{% url 'add_task'  %}">+ Новая задача</a></h2>
+
+        {% for task in tasks %}
+            <div class="task" >
+
+                <div class="date">
+                    {{ task.published_date }}
+                </div>
+                <h1><a href="{% url 'view_task' pk=task.pk %}">{{ task.task_name }}</a></h1>
+
+                <a>Описание: {{ task.task_description|linebreaks }}</a>
+
+
+                <p>Статус: {{ task.status }}</p>
+<a class = "button" href="{% url 'view_task' pk=task.pk %}">
+                    <span class= "glyphicon glyphicon-eye-open"></span>
+                    </a>
+
+
+            </div>
+        {% endfor %}
+    {% endblock content %}

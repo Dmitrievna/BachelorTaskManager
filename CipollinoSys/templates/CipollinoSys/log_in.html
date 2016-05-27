@@ -12,39 +12,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Новое задание</title>
+    <title>Вход</title>
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
 </head>
 <body>
-        <div class="page-header">
-            <h1><a href="/">#compiti</a></h1>
-            <h2> Вы зашли как {{ request.user }} <a class = "button" href="{% url 'log_in'  %}">Выйти</a></h2>
 
- {% if request.user.is_staff %}
 
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-        </div>
+        <div class="page-header">
+            <h1>
+            <a href="/">#compiti</a></h1>
 
-        <div class="content container">
-            <h2>Новая задача</h2>
+
+
+        </div>
+<div id = "container">
+<h2>Приветствую! Введите логин и пароль, чтобы начать работу.</h2>
+
             <div class="row">
                 <div class="col-md-8">
 
-        <form method="POST" class="task-form">
+        <form method="POST" class="form">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <button type="submit" class="save btn btn-default">Сохранить</button>
+            <button type="submit" class="save btn btn-default">Войти!</button>
+
         </form>
 
                 </div>
             </div>
-        </div>
-
-
-
+</div>
 
 
 

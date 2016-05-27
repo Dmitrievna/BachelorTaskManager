@@ -1,0 +1,21 @@
+{% extends 'CipollinoSys/base.html' %}
+
+
+     {% block content %}
+
+<h2> Пользователей, выполняющих задачи:{{ results.0 }}</h2>
+<h1>Нажмите для подробной статистики</h1>
+        {% for result in results.1 %}
+            <div class="task" >
+
+
+                <h1><a href="{% url 'view_statistic' pk=result.task_performer.pk %}">{{ result.task_performer }}</a></h1>
+
+
+
+
+
+
+            </div>
+        {% endfor %}
+    {% endblock content %}

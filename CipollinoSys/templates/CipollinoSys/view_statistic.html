@@ -1,0 +1,17 @@
+{% extends 'CipollinoSys/base.html' %}
+
+
+     {% block content %}
+
+<h1> Пользователь: {{ results.0 }}</h1>
+
+<h2> Просроченных задач:    {{ results.3 }}</h2>
+
+
+<h2> Задач закончено:    {{ results.4 }}</h2>
+
+<h2> Затрачено времени {{ results.5 }} часов</h2>
+
+
+
+    {% endblock content %}

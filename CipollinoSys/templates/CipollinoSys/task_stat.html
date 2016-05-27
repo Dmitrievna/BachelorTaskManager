@@ -1,0 +1,12 @@
+{% extends 'CipollinoSys/base.html' %}
+
+
+     {% block content %}
+
+<h2> Задач со статусом "Новая":    {{ tresult.0 }}</h2>
+<h2> Задач со статусом "Выполнено":    {{ tresult.1 }}</h2>
+<h2> Просроченных задач:    {{ tresult.2 }}</h2>
+
+
+
+    {% endblock content %}

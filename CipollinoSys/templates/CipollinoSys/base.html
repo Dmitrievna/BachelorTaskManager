@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load staticfiles %}
+    <html>
+        <head>
+        <title>Compiti</title>
+         <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        </head>
+        <body>
+
+
+
+
+        <div class="page-header">
+            <h1>
+            <a href="/all_tasks/">#compiti</a></h1>
+            <h2>  Вы зашли как {{ request.user }} <a class = "button" href="{% url 'log_in'  %}">Выйти</a>
+             {% if request.user.is_staff %}
+    <a href = "/admin">Режим суперпользователя</a> <a href = "{% url 'users' %}"> Статистика пользователей</a>
+                <a href = "{% url 'task_stat' %}"> Статистика задач</a>
+{% endif %}
+</h2>
+
+
+
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>

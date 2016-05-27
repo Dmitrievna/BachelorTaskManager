@@ -1,0 +1,35 @@
+{% extends 'CipollinoSys/base.html' %}
+ <h2> Вы зашли как {{ request.user }}</h2>
+
+
+
+     {% block content %}
+
+
+
+
+
+
+            <div class="task" >
+
+                <div class="date">
+                    {{ task.published_date }}
+                </div>
+                <h1><a href="{% url 'view_task' pk=task.pk %}">{{ task.task_name }}</a></h1>
+
+
+             <div class="info">
+
+                <p> Статус: {{ task.status }}</p>
+                <p>{{ task.task_description }}</p>
+                <p>Автор:{{ task.task_owner }}</p>
+                <p>Срок сдачи: {{ task.deadline}}</p>
+<p><h2><a class="'button" href="{% url 'edit_task' pk=task.pk  %}"><span class= "glyphicon glyphicon-pencil"></span></a></h2></p>
+
+             </div>
+
+
+
+            </div>
+
+    {% endblock content %}
